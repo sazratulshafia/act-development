@@ -121,12 +121,11 @@ export default function Header() {
 
           {/* Desktop Navigation Links with Dropdown Carets */}
           <nav 
+            className="header-desktop-nav"
             style={{ 
-              display: 'none', 
               alignItems: 'center', 
               gap: '6px' 
             }} 
-            className="md:flex"
           >
             {/* 1. Buy Property */}
             <button
@@ -335,8 +334,8 @@ export default function Header() {
             {/* Phone hotline */}
             <a 
               href="tel:16760" 
+              className="header-desktop-hotline"
               style={{ 
-                display: 'none', 
                 alignItems: 'center', 
                 gap: '6px', 
                 textDecoration: 'none', 
@@ -344,7 +343,6 @@ export default function Header() {
                 fontSize: '14px',
                 fontWeight: 700 
               }}
-              className="lg:flex"
             >
               <div style={{
                 width: '32px',
@@ -364,11 +362,10 @@ export default function Header() {
             {/* Landowner / Private Viewing Red Button */}
             <button
               onClick={() => setIsScheduleOpen(true)}
-              className="btn-red sm:inline-flex"
+              className="btn-red header-desktop-cta"
               style={{
                 padding: '10px 18px',
                 fontSize: '13px',
-                display: 'none',
               }}
             >
               <Calendar size={14} />
@@ -378,8 +375,9 @@ export default function Header() {
             {/* Mobile Hamburger Button */}
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              className="header-mobile-toggle"
+              aria-label="Toggle Navigation Menu"
               style={{
-                display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
                 width: '40px',
@@ -390,7 +388,6 @@ export default function Header() {
                 color: '#111827',
                 cursor: 'pointer',
               }}
-              className="md:hidden"
             >
               {mobileMenuOpen ? <X size={20} /> : <Menu size={20} />}
             </button>
@@ -949,7 +946,9 @@ export default function Header() {
 
       {/* Mobile Drawer */}
       {mobileMenuOpen && (
-        <div style={{
+        <div 
+          className="header-mobile-drawer"
+          style={{
           position: 'fixed',
           top: '76px',
           left: 0,
